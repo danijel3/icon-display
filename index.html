@@ -817,6 +817,10 @@
         "zoom-in",
         "zoom-out",
     ];
+    let digits = Array.from({ length: 10 }, (_, i) => String.fromCharCode(i + 48));
+    let upper = Array.from({ length: 26 }, (_, i) => String.fromCharCode(i + 65));
+    let lower = Array.from({ length: 26 }, (_, i) => String.fromCharCode(i + 97));
+    let letters = digits.concat(upper).concat(lower);
 </script>
 
 <head>
@@ -833,11 +837,16 @@
         const icon = document.getElementById('icon');
         const container = document.getElementById('icon-container');
         function set_icon() {
-            let bx = document.createElement('box-icon');
-            let ridx = Math.floor(Math.random() * bx_list.length);
-            bx.setAttribute('name', bx_list[ridx]);
-            bx.setAttribute('size', '50vw');
-            icon.replaceChildren(bx);
+            if (Math.random() > 0.5) {
+                let bx = document.createElement('box-icon');
+                let ridx = Math.floor(Math.random() * bx_list.length);
+                bx.setAttribute('name', bx_list[ridx]);
+                bx.setAttribute('size', '50vw');
+                icon.replaceChildren(bx);
+            } else {
+                let ridx = Math.floor(Math.random() * letters.length);
+                icon.innerHTML = letters[ridx];
+            }
             container.requestFullscreen();
         }
         icon.addEventListener('click', set_icon);
