@@ -1,3 +1,11 @@
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;    
+  }
+
 #icon-container {
     background-color: white;
     width: 100vw;
@@ -16,4 +24,8 @@
     height: 2em;
     top: 50%;
     left: 50%;
+}
+
+#icon img {
+    width: 60%;
 }
